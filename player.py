@@ -5,8 +5,8 @@ snake_color = (141, 204, 33)
 class Player:
     def __init__(self, screen):
         self.screen = screen
-        self.x = 190
-        self.y = 190
+        self.x = 85
+        self.y = 85
         self.ver = "DOWN"
     def draw(self):
         pg.draw.rect(self.screen, snake_color ,(self.x, self.y, 30, 30))
@@ -26,13 +26,13 @@ class Player:
            
         match self.ver:
                case "DOWN":
-                   self.y += 80
+                   self.y += 40
                case "UP":
-                   self.y -= 80
+                   self.y -= 40
                case "RIGHT":
-                   self.x += 80
+                   self.x += 40
                case "LEFT":
-                   self.x -= 80
+                   self.x -= 40
                
 
 
@@ -40,4 +40,4 @@ class Player:
                          
 
     def update(self):
-        pass  
+        pass   
