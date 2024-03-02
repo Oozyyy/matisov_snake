@@ -26,18 +26,18 @@ class Game:
                     [0,0,0,0,0,0,0,0,0,0]]
     
     def draw_lines (self):  
-        for i in range(10):
+        for i in range(20):
             
     
-            pg.draw.line(self.screen, green ,[0, (i + 1)*80], [800, (i + 1)*80],  3)
-            pg.draw.line(self.screen, green, [(i + 1) * 80, 0], [(i+1)* 80, 800], 3)       
+            pg.draw.line(self.screen, green ,[0, (i + 1)*40], [800, (i + 1)*40],  3)
+            pg.draw.line(self.screen, green, [(i + 1) * 40, 0], [(i+1)* 40, 800], 3)       
 
     def game(self):
         while True:
             self.draw()
             self.move()
             self.update()
-            self.clock.tick(30)
+            self.clock.tick(10)
 
     def draw(self):
         self.screen.blit(self.back_surf, (0,0))
