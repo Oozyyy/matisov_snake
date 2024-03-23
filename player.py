@@ -1,15 +1,17 @@
 import pygame as pg
 
-snake_color = (141, 204, 33)
+
+snake_color = (8, 161, 31)
 
 class Player:
     def __init__(self, screen):
         self.screen = screen
-        self.x = 85
-        self.y = 85
+        self.x_player = 85
+        self.y_player = 85
         self.ver = "DOWN"
+             
     def draw(self):
-        pg.draw.rect(self.screen, snake_color ,(self.x, self.y, 30, 30))
+        self.player = pg.draw.rect(self.screen, snake_color ,(self.x_player, self.y_player, 30, 30))
 
     def move(self, keys):
         if keys[pg.K_s]:
@@ -26,18 +28,17 @@ class Player:
            
         match self.ver:
                case "DOWN":
-                   self.y += 40
+                   self.y_player += 40
                case "UP":
-                   self.y -= 40
+                   self.y_player -= 40
                case "RIGHT":
-                   self.x += 40
+                   self.x_player += 40
                case "LEFT":
-                   self.x -= 40
-               
+                   self.x_player -= 40
+    
+  
 
-
-            
-                         
 
     def update(self):
-        pass   
+        pass
+             
