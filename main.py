@@ -2,7 +2,7 @@ import pygame as pg
 from player import Player
 from apple import Apple
 
-green = (5, 161, 33)
+green = (7, 130, 25)
 black = (0, 0, 0)
 class Game:
 
@@ -28,14 +28,9 @@ class Game:
     def draw_lines (self):  
         
         for i in range(20):
+            pg.draw.line(self.screen, green ,[0, (i + 1)*40], [800, (i + 1)*40],  1)
+            pg.draw.line(self.screen, green, [(i + 1) * 40, 0], [(i+1)* 40, 800], 1) 
             
-    
-            pg.draw.line(self.screen, green ,[0, (i + 1)*40], [800, (i + 1)*40],  3)
-            pg.draw.line(self.screen, green, [(i + 1) * 40, 0], [(i+1)* 40, 800], 3) 
-            
-    
-         
-
     def game(self):
         while True:
             self.draw()
@@ -43,19 +38,16 @@ class Game:
             self.update()
             self.clock.tick(10)
 
-
-            
-            
-            
-
-
+    def change_pos_apple(self):
+        if pg.Rect.colliderect(self.apple.apple, self.player.player) is True:
+            self.apple.change_pos()
+                    
     def draw(self):
-        self.screen.blit(self.back_surf, (0,0))
+        self.screen.fill(green)
         self.draw_lines()
         self.player.draw()
         self.apple.draw()
-
-      
+     
     def move(self):
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -65,9 +57,15 @@ class Game:
 
         
     def update(self):
+        
+        self.change_pos_apple()
         pg.display.update()
         self.apple.update()
+        
+        
+
 
 game = Game()
 game.game()
+
 
